@@ -1,36 +1,28 @@
 import React, {useState} from "react";
 import Home from "./home";
+import Notes from "./Notes.jsx";
 
-const TODOLIST({tasks, addTask, deleteTask }){
-  const [task, setTask]= useState ('');
-  const handleTaskChange= (e)=>{
-    setTask(e.target.value);
-  };
-  const handleAddTask= ()=>{
-     if (task.trim() !==('')){
-      addTask(task);
-      setTask ('');
-     }
-  };
-  const handleDeleteTask= (index)=>{
-    deleteTask(index);
-  };
-      return (
-        <div>
-            <h1>Task List for Deucalinos</h1>
-            <input type="text" value={task} onChange={handleTaskChange} placeholder="What is missing to be done?"/>
-            <button type="submit" onClick={handleAddTask}><i class="fa-solid fa-hexagon-plus"></i></button>
-            <ul>
-              {tasks.map ((task, index)=>(
-                 <li key={index}>
-                  {task}
-                  <button onClick={()=>handleDeleteTask(index)}><i class="fa-solid fa-trash-can-list"></i></button>
-                 </li>
-                 
-              ))}
-               
-            </ul>
-        </div>
-      );
+const todoList= ()=>{
+  const {newTask,setNewTask}=useState('');
+  const {list, setList}=useState ({});
+  function addNewTask() {
+		setList(list.concat(newTask));
 }
+      return (
+        <div className="container">
+            <h1>Task List for Deucalinos</h1>
+              <div className="input">
+              <input type="text"  onChange={e => setNewTask(e.target.value)} value={newTask} placeholder="What is missing to be done?"/>
+              </div>
+           
+               <div className="buttonadd">
+                <button type="submit" onClick={addNewTask}><i class="fa-solid fa-hexagon-plus"></i></button>
+              </div>
+              {list.map(l => (
+				<Notes text={l} />
+			))}
+       </div>
+      );
+              };
+  
 export default TodoList;
