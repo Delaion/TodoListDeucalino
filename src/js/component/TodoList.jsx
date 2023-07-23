@@ -12,15 +12,12 @@ const todoList= ()=>{
         <div className="container">
             <h1>Task List for Deucalinos</h1>
               <div className="input">
-              <input type="text"  onChange={e => setNewTask(e.target.value)} value={newTask} placeholder="What is missing to be done?"/>
+              <input type="text"   placeholder="What is missing to be done?"/>
               </div>
            
                <div className="buttonadd">
-                <button type="submit" onClick={addNewTask}><i class="fa-solid fa-hexagon-plus"></i></button>
+                <button type="submit"><i class="fa-solid fa-hexagon-plus"></i></button>
               </div>
-              {list.map(l => (
-				<Notes text={l} />
-			))}
        </div>
       );
               };
