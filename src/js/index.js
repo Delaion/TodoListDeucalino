@@ -1,4 +1,3 @@
-//import react into the bundle
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -7,13 +6,7 @@ import "../styles/index.css";
 
 //import your own components
 import Home from "./component/home.jsx";
-import TodoList from "./component/TodoList";
-import Notes from "./component/Notes";
-
 
 //render your react application
-ReactDOM.render(
-<Home/>
+ReactDOM.render(<Home />, document.querySelector("#app"));
 
-
-, document.querySelector("#app"));
