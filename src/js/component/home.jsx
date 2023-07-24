@@ -11,7 +11,6 @@ const Home = () => {
 	function addNewTodo(){
 		setList(list.concat(newTodo));
 		console.log(list);
-
 	}
 	return (
 		<div className="inputs">
